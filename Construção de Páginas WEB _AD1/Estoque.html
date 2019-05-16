@@ -8,7 +8,24 @@
 	<meta charset="UTF-8">
 	<title> Rio200graus</title>
 	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
-
+		<script language="javascript">
+				var arrayFotosPreco = new Array(5);
+				
+				arrayFotosPreco[0] = ["FogaoBrastemp4b", 730];
+				arrayFotosPreco[1] = ["FogaoElectrolux4b",784];
+				arrayFotosPreco[2] = ["FogaoBrastemp6b",1350];
+				arrayFotosPreco[3] = ["FornoEletPhilco46L",319];
+				arrayFotosPreco[4] = ["FornoGasItajobi56L",563];
+				
+		function mostraFotosInfo(posicao){
+			var foto = document.getElementById("fotoId");
+			var preco = document.getElementById("precoId");
+			
+			foto.src = "_imagens/" + arrayFotosPreco[posicao][0] + ".jpg";
+			preco.innerHTML = "R$" + arrayFotosPreco[posicao][1] + ",00";
+		}
+		console.log(arrayFotosPreco)
+		</script>
 </head>
 <body>
 <header>
@@ -32,66 +49,37 @@
 	<h3 style="font-family:verdana;" >Estoque</h3>
 	<table class="tabInfo">
 		<tr>
-			<th colspan="5" class="titulo">Fogões</th>
+			<th colspan="5" class="titulo">Fogão & Forno </th>
    
 		</tr>
 		
 		<tr>
-			<th class="linTH">Marca</th>
-			<th class="linTH">Foto</th>
-			<th colspan="2"class="linTH">Tipo</th>
-			<th class="linTH">Preço</th>
-		</tr>
-		
-		<tr>
-			<th rowspan="2" class="colTH">Brastemp</th>
-			<td class="imgCell"><img src="_imagens/\FogaoBrastemp4b.jpg" ></td>
-			<td colspan="2">Fogão de piso 4 bocas</td>
-			<td class="preco">R$ 730,00</td>
-		</tr>
-		
-		<tr>
-			
-			<td class="imgCell"><img src="_imagens/FogaoBrastemp6b.jpg"></td>
-			<td colspan="2">Fogão de piso 6 bocas</td>
-			<td class="preco">R$ 1350,00</td>
-		</tr>
-		
-		<tr>
-			<th class="colTH">Electrolux</th>
-			<td class="imgCell"><img src="_imagens/FogaoElectrolux4b.jpg"> </td>
-			<td colspan="2">Fogão de piso 4 bocas</td>
-			<td class="preco">R$ 784,00</td>
-		</tr>
-		
-		
-		
-		<tr>
-			<th colspan="5" class="titulo">Fornos</th>
-		</tr>
-		
-		<tr>
-			<th class="linTH">Marca</th>
-			<th class="linTH">Foto</th>
-			<th class="linTH">Capacidade</th>
 			<th class="linTH">Tipo</th>
-			<th class="linTH">Preço</th>
+			<th  colspan="2" class="linTH">Modelo</th>
+			<th colspan="2"class="linTH">Imagem/Preço</th>
 		</tr>
 		
 		<tr>
-			<th class="colTH">Philco</th>
-			<td class="imgCell"><img src="_imagens/\FornoEletPhilco46L.jpg" ></td>
-			<td>46L</td>
-			<td>Elétrico</td>
-			<td class="preco">R$ 319,00</td>
+			<th rowspan="3" class="colTH">Fogão</th>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(0)">Brastemp de piso 4 bocas</td>
+			<td rowspan="5"  ><img src="_imagens/Vazio.jpg" id="fotoId" class='imgEstoque' ><p id="precoId" class="precoCell"></p> </td>
 		</tr>
 		
 		<tr>
-			<th class="colTH">Itajobi</th>
-			<td class="imgCell"><img src="_imagens/FornoGasItajobi56L.jpg" ></td>
-			<td>56L</td>
-			<td>À gás</td>
-			<td class="preco">R$ 563,00</td>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(1)">Electrolux de piso 4 bocas</td>
+		</tr>
+		
+		<tr>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(2)">Brastemp de piso 6 bocas</td>
+		</tr>
+
+		<tr>
+			<th rowspan="2" class="colTH">Forno</th>			
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(3)">Philco Elétrico 46L</td>
+		</tr>
+		
+		<tr>
+			<td class="preco" colspan="2" ><a href="javascript:mostraFotosInfo(4)">Itajobi à gás 56L</td>
 		</tr>
 	</table>
 	

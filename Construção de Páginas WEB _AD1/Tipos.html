@@ -6,6 +6,43 @@
 	<title>Rio200graus</title>
 	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
 	
+	<script language="javascript">
+			var arrayTipos = new Array(3);
+			var arrayProdutos = new Array(3);
+			
+			arrayTipos[0] = ["Fogão", 350, 550, "FogaoBrastemp4b"];
+			arrayTipos[1] = ["Forno", 350, 550, "FornoEletPhilco46L"];
+			
+			arrayProdutos[0] = [ ["Brastemp 4 bocas", 730 ],["Elecetrolux 6 bocas ", 784], ["Brastemp 6 bocas ", 1350] ];
+			arrayProdutos[1] = [ ["Elétrico Philco 46L ", 319], ["À gás Itajobi 56L", 563]];
+			
+				function mostraProdutos(tipos){
+					var janela = open("", arrayTipos[tipos][0], "location=no,status=no,width=" + arrayTipos[tipos][1] + ",height=" + arrayTipos[tipos][2] + "");
+					
+					with (janela.document){
+						write("<html><head><title>Rio200graus</title>");
+						write("<link rel='stylesheet' href='_css/folhaDeEstilo.css'>");   //Aqui pode dar ruim atenção dps
+						write("<head></body>");
+						write("<div class='apres'>");
+						write("<h1>", arrayTipos[tipos][0], "</h1>");
+						write("<img src='_imagens/", arrayTipos[tipos][3], ".jpg' class='imgJanela' /> ");
+						write("</div><ul class='janLista'>");
+						
+						for (i = 0; i < arrayProdutos[tipos].length; i++ )
+							write("<li>", arrayProdutos[tipos][i][0]," - R$ ", arrayProdutos[tipos][i][1],",00</li>");
+							write("</ul>");
+							write("<div class='apres'>");
+							write("<input type='button' value='Fechar' onClick='window.close();'></div>");
+							write("<p>Foto meramente ilustrativa...</p>");
+							write("</form></div></body></html>");
+							close();
+							
+					}
+					
+				}
+			
+			console.log(arrayProdutos)
+	</script>
  
 </head>
 <body>
@@ -29,16 +66,10 @@
 <section>
 	<h3 style="font-family:verdana;" >Tipos</h3>
 	<ol class="listaTipos" style="width:50%;">
-		<li>Fogão à gás GLP:</li>
-			<ul>
-				<li>4 bocas </li>
-				<li>6 bocas </li>
-			</ul>
-		<li>Forno:</li>
-			<ul>
-				<li>Elétrico</li>
-				<li>À gás</li>
-			</ul>
+		<li><a href="javascript:mostraProdutos(0) ">Fogão à gás GLP:</li>
+			
+		<li><a href="javascript:mostraProdutos(1) ">Forno:</li>
+			
 	</ol>
 </section>
 	

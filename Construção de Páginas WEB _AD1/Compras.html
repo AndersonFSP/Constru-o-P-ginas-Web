@@ -5,7 +5,44 @@
 	<meta charset="UTF-8">
 	<title>Rio200graus</title>
 	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
+	<script>
+		var arrayTipos = ["Fogão ","Forno "]
+		var arrayProdutos = [["Brastemp 4 B.BF04N",730],["Brastemp 6 B.BFS6N",1350],["Electrolux 4 B.50SBC", 784],["Elétrico Philco 46L",319],["Gás 56 litros Itajobi",563]]
+		console.log(arrayProdutos);
+
+		function selecionaProdutos(selec){
+			 produto = selec.selectedIndex;;
+			 select = selec;
+			return produto;
+			
+			}
+			
+	var select;
+	var produto;
+	var eletrodomestico;
+	var precoFinal = 0;
 	
+	
+		function adicionaInfo(){
+				
+				if ( produto != 0){
+				var preco = arrayProdutos[produto - 1][1] ;
+				precoFinal = precoFinal + preco
+				console.log(preco)
+				
+					if (produto < 4   ){  eletrodomestico = 0; }
+					else {eletrodomestico = 1;}	
+					
+					with(select.form){
+						lt.value += arrayTipos[eletrodomestico] + arrayProdutos[produto-1][0] +"" +'\n';
+						textvalor.value =   precoFinal ;
+					}
+				}	 
+			}
+		
+		
+				
+	</script>
  
 </head>
 <body>
@@ -40,11 +77,11 @@
 		</fieldset>
 	</form>
 	
-	<form>
+	<form id="form1">
 		<fieldset>
 			<legend>Lista de Compras e Pagamento</legend>
 			<label>Produtos:</label><br/>
-			<select class="inpEmail">
+			<select class="inpEmail" name="secitens" onchange=" selecionaProdutos(this);">
 				<option value="brastemp"  >-----</option>
 				<optgroup label="Fogão">
 					<option value="bratemp" >Brastemp 4 B.BF04N</option>
@@ -53,13 +90,13 @@
 				<optgroup label="Forno">
 					<option value="Electrico">Elétrico Philco 46L</option>
 					<option value="Gás ">Gás 56 litros Itajobi</option>	
-			<select>
-			<input type="submit" value="Comprar" >
+			</select>
+			<input type="button" value="Comprar"  onclick="adicionaInfo();" >
 			
 			<div align="right" class="frDirCompras">
-				<textarea rows="10" cols="18" readonly></textarea> <br/>
-				<label class="colPri">Valor: R$</label>
-				<input  type="text"class="impMedio" >
+				<textarea name="listapr"  rows="10" cols="30" id="lt" readonly></textarea> <br/>
+				<label class="colPri"  >Valor: R$</label>
+				<input  type="text" class="impMedio" name="textvalor" id="valor" readonly>
 			</div>
 			<fieldset class="colPriCompras">
 				
