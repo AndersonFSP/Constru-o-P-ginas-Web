@@ -5,7 +5,23 @@
 	<meta charset="UTF-8">
 	<title>Rio200graus</title>
 	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
-	
+		<script language="javascript">
+				function verificaTelefone(numero, aparelho, requisito){
+					var i,j;
+					var numTel = numero.value;
+					if(numTel.length != requisito){
+						alert("Telefone " + aparelho +" tem de ter "+ requisito + " digitos");
+						return false;
+					}
+					for (i=0; i < requisito; i++){
+						j = numTel.charAt(i);
+						if((j < '0' ) || (j > '9')){
+							alert("Telefone só pode ter digitos, caracter " +j+ " inválido! ");
+							return false;
+						}
+					}
+				}		
+		</script>
  
 </head>
 <body>
@@ -47,15 +63,15 @@
 	<form >
 		<fieldset>
 			<legend>Dados Pessoais</legend>
-			<label class="colPri">Nome:</label>
-			<input type="text" class="inpGrande"><br/>
-			<label class="colPri">Endereço:</label>
-			<textarea cols="46">      </textarea><br/>
-			<label class="colPri">Telefone:</label>
-			<input  type="text" class="impMedio">
+			<label for="nome" class="colPri">Nome:</label>
+			<input  id="nome" type="text" class="inpGrande"><br/>
+			<label for="endereco" class="colPri">Endereço:</label>
+			<textarea id="endereco" cols="46">      </textarea><br/>
+			<label for="telefone" class="colPri" >Telefone:</label>
+			<input id="telefone" type="text" class="impMedio" onChange="verificaTelefone(this,'fixo',8);">
 			<div class="elemDir">
-			<label >Celular:</label>
-			<input type="text" class="impMedio"><br/>
+			<label for="celular">Celular:</label>
+			<input onChange="verificaTelefone(this,'celular', 9);" id="celular" type="text" class="impMedio" ><br/>
 			</div>
 			
 				<fieldset class="fsEsq">
