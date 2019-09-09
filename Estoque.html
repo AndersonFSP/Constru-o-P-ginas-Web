@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+
+<html language="pt-br">
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Rio200graus</title>
+	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
+		<script language="javascript">
+				var arrayFotosPreco = new Array(5);
+				
+				arrayFotosPreco[0] = ["FogaoBrastemp4b", 730];
+				arrayFotosPreco[1] = ["FogaoElectrolux4b",784];
+				arrayFotosPreco[2] = ["FogaoBrastemp6b",1350];
+				arrayFotosPreco[3] = ["FornoEletPhilco46L",319];
+				arrayFotosPreco[4] = ["FornoGasItajobi56L",563];
+				
+		function mostraFotosInfo(posicao){
+			var foto = document.getElementById("fotoId");
+			var preco = document.getElementById("precoId");
+			
+			foto.src = "_imagens/" + arrayFotosPreco[posicao][0] + ".jpg";
+			preco.innerHTML = "R$" + arrayFotosPreco[posicao][1] + ",00";
+		}
+		console.log(arrayFotosPreco)
+		</script>
+</head>
+<body>
+<header>
+	<img src="_imagens/Rio200deitado.png"  class="imgLogo" >
+	<p class="ender">Avenida Atacama, 200 <br/>
+	Tel: (21)98765-4321  <br/>
+	contato@hotashell.com.br</a><p>	
+</header>
+
+<nav>
+	<ul>
+		<li><a href="Rio200graushtml5.html" target="_blank">Inicial</a></li>
+		<li><a href="Tipos.html" target="_blank">Tipos</a></li>
+		<li><a href="Estoque.html" target="_blank">Estoque</a></li>
+		<li><a href="Cadastro.html" target="_blank">Cadastro</a></li>
+		<li><a href="Compras.html" target="_blank">Compras</a></li>
+	</ul>
+</nav>
+
+<section>
+	<h3 style="font-family:verdana;" >Estoque</h3>
+	<table class="tabInfo">
+		<tr>
+			<th colspan="5" class="titulo">Fogão & Forno </th>
+   
+		</tr>
+		
+		<tr>
+			<th class="linTH">Tipo</th>
+			<th  colspan="2" class="linTH">Modelo</th>
+			<th colspan="2"class="linTH">Imagem/Preço</th>
+		</tr>
+		
+		<tr>
+			<th rowspan="3" class="colTH">Fogão</th>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(0)">Brastemp de piso 4 bocas</td>
+			<td rowspan="5"  ><img src="_imagens/Vazio.jpg" id="fotoId" class='imgEstoque' ><p id="precoId" class="precoCell"></p> </td>
+		</tr>
+		
+		<tr>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(1)">Electrolux de piso 4 bocas</td>
+		</tr>
+		
+		<tr>
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(2)">Brastemp de piso 6 bocas</td>
+		</tr>
+
+		<tr>
+			<th rowspan="2" class="colTH">Forno</th>			
+			<td class="preco" colspan="2"><a href="javascript:mostraFotosInfo(3)">Philco Elétrico 46L</td>
+		</tr>
+		
+		<tr>
+			<td class="preco" colspan="2" ><a href="javascript:mostraFotosInfo(4)">Itajobi à gás 56L</td>
+		</tr>
+	</table>
+	
+</section>
+
+
+</body>
+</html>

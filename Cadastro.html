@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Rio200graus</title>
+	<link rel="stylesheet" href="_css/folhaDeEstilo.css">
+		<script language="javascript">
+				function verificaTelefone(numero, aparelho, requisito){
+					var i,j;
+					var numTel = numero.value;
+					if(numTel.length != requisito){
+						alert("Telefone " + aparelho +" tem de ter "+ requisito + " digitos");
+						return false;
+					}
+					for (i=0; i < requisito; i++){
+						j = numTel.charAt(i);
+						if((j < '0' ) || (j > '9')){
+							alert("Telefone só pode ter digitos, caracter " +j+ " inválido! ");
+							return false;
+						}
+					}
+				}		
+		</script>
+ 
+</head>
+<body>
+	<header>
+	<img src="_imagens/Rio200deitado.png"  class="imgLogo" >
+	<p class="ender">Avenida Atacama, 200 <br/>
+	Tel: (21)98765-4321  <br/>
+	contato@hotashell.com.br</a><p>	
+</header>
+
+<nav>
+	<ul>
+		<li><a href="Rio200graushtml5.html" target="_blank">Inicial</a></li>
+		<li><a href="Tipos.html" target="_blank">Tipos</a></li>
+		<li><a href="Estoque.html" target="_blank">Estoque</a></li>
+		<li><a href="Cadastro.html" target="_blank">Cadastro</a></li>
+		<li><a href="Compras.html" target="_blank">Compras</a></li>
+	</ul>
+</nav>
+
+<section>
+<h3 style="font-family:verdana;" >Cadastro</h3>
+<div class="divLinha">
+	<form >
+		<fieldset>
+			<legend>Identificação</legend>
+			<label for="email" class="colPri" >E-mail:</label>
+			<input type="text" id="email" name="email" class="inpGrande"><br/>
+			<label for="senha" class="colPri" >Senha:</label>
+			<input type="text" id="senha" name="senha" class="impMedio" >
+			<div class="elemDir">
+			<label for="confirme">Confirme:</label>
+			<input type="text" id="confirme" name="confirme" class="impMedio">
+			</div>
+			
+		</fieldset>
+	</form>
+	
+	<form >
+		<fieldset>
+			<legend>Dados Pessoais</legend>
+			<label for="nome" class="colPri">Nome:</label>
+			<input  id="nome" type="text" class="inpGrande"><br/>
+			<label for="endereco" class="colPri">Endereço:</label>
+			<textarea id="endereco" cols="46">      </textarea><br/>
+			<label for="telefone" class="colPri" >Telefone:</label>
+			<input id="telefone" type="text" class="impMedio" onChange="verificaTelefone(this,'fixo',8);">
+			<div class="elemDir">
+			<label for="celular">Celular:</label>
+			<input onChange="verificaTelefone(this,'celular', 9);" id="celular" type="text" class="impMedio" ><br/>
+			</div>
+			
+				<fieldset class="fsEsq">
+					<legend >Nascimento</legend>
+					<input type="number" class="numDD"> / <input type="number" class="numDD"> / <input type="number" min="1920" max="2000"class="numQD"> 
+				</fieldset>
+				<fieldset class="fsDir">
+					<legend >Sexo</legend>
+					<input type="radio" name="gender" id="male" value="male">  
+					<label for="male">Masculino </label>
+					<input type="radio" name="gender" id="female" value="female">  
+					<label for="male">Feminino </label>
+				</fieldset>
+		</fieldset>
+	</form>
+	<div class="botoes">
+		<input type="submit" value="Enviar" >
+		<input type="reset" value="Limpar" >
+	</div>
+</div>
+</section>
+	
+</body>
+</html>
